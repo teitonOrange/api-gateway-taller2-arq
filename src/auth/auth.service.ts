@@ -8,5 +8,13 @@ export class AuthService {
         return  data
     }
 
+    async logout(token: string) {
+        const { data } = await axios.post(process.env.ACCESS_MANAGEMENT+'auth/logout', {}, {
+            headers: {
+                Authorization: token
+            }
+        });
+        return data
+    }
     
 }
